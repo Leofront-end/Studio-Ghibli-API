@@ -23,12 +23,17 @@ async function Iniciar() {
         let InformacaoCard = result[card]
         let Titulo = document.createElement('p')
         let imagem = document.createElement('img')
+        let descricao = document.createElement('p')
+
+
         Titulo.innerHTML = `${InformacaoCard.title}`
+        Titulo.className = 'Titulo'
         imagem.src = `${InformacaoCard.image}`
+        descricao.innerHTML = `${InformacaoCard.description}`
         console.log(Titulo,imagem);
         
 
-        projetos.append(Titulo,imagem)
+        projetos.append(Titulo,imagem,descricao)
         console.log(result[card])
     }
 }
