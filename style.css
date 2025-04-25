@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+
+h1 {
+    font-family: 'Indie flower';
+}
+
+a {
+    text-decoration: none;
+}
+
+#imagemBanner{
+    max-width: 100vw;
+    filter: blur(2px);
+
+
+}
+
+.banner {
+    display: inline-block;
+    position: relative;
+}
+
+.banner p {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* font-family: ; */
+    font: bolder 40px 'Indie flower' ;
+    color: white;
+}
+
+.Projeto{
+    width: 100vw;
+    text-align: center;
+}

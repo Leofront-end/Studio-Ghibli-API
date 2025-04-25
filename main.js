@@ -1,5 +1,6 @@
 const imagemBanner = document.getElementById('imagemBanner')
 const projetos = document.getElementById('Projetos')
+const verMais = document.getElementById('verMais')
 
 const fetchApi = (value) => {
     const result = fetch(`https://ghibliapi.vercel.app/films/${value}`)
@@ -19,25 +20,50 @@ async function Iniciar() {
 
     const result = await fetchApi('')
     console.log(result)
-    for (let card = 0; card <= result.length - 13; card++) {
-        let InformacaoCard = result[card]
+    for (let cards = 0; cards <= result.length - 13; cards++) {
+        let InformacaoCards = result[cards]
         let Titulo = document.createElement('p')
         let imagem = document.createElement('img')
         let descricao = document.createElement('p')
+        let card = document.createElement('section')
 
 
-        Titulo.innerHTML = `${InformacaoCard.title}`
+        Titulo.textContent = `${InformacaoCards.title}`
         Titulo.className = 'Titulo'
-        imagem.src = `${InformacaoCard.image}`
-        descricao.innerHTML = `${InformacaoCard.description}`
-        console.log(Titulo,imagem);
-        
+        imagem.src = `${InformacaoCards.image}`
+        descricao.textContent = `${InformacaoCards.description}`
+        card.className = 'Cards'
 
-        projetos.append(Titulo,imagem,descricao)
-        console.log(result[card])
+        
+        card.append(Titulo,imagem,descricao)
+        projetos.append(card)
     }
 }
 
 Iniciar()
+verMais.addEventListener('click',async () => {
+    const resultado = await fetchApi('')
+    projetos.innerHTML = ''
+    for ( let cards of resultado ){
+        let Titulo = document.createElement('p')
+        let imagem = document.createElement('img')
+        let descricao = document.createElement('p')
+        let card = document.createElement('section')
+
+
+        Titulo.textContent = `${cards.title}`
+        Titulo.className = 'Titulo'
+        imagem.src = `${cards.image}`
+        descricao.textContent = `${cards.description}`
+        card.className = 'Cards'
+        
+
+        card.append(Titulo,imagem,descricao)
+        projetos.append(card)
+
+        console.log(cards.title)
+    }
+    verMais.remove()
+})
 
 
