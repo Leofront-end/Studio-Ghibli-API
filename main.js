@@ -1,6 +1,6 @@
 const imagemBanner = document.getElementById('imagemBanner')
 const projetos = document.getElementById('Projetos')
-const verMais = document.getElementById('verMais')
+const verMais = document.getElementById('projetoVerMais')
 
 const fetchApi = (value) => {
     const result = fetch(`https://ghibliapi.vercel.app/films/${value}`)
@@ -27,14 +27,16 @@ async function Iniciar() {
         let descricao = document.createElement('p')
         let card = document.createElement('section')
 
-
         Titulo.textContent = `${InformacaoCards.title}`
-        Titulo.className = 'Titulo'
-        imagem.src = `${InformacaoCards.image}`
         descricao.textContent = `${InformacaoCards.description}`
-        card.className = 'Cards'
-
         
+        imagem.src = `${InformacaoCards.image}`
+
+        Titulo.className = 'cardsTitulo'
+        imagem.className = 'cardsImagem'
+        descricao.className = 'cardsDescricao'
+        card.className = 'cards'
+
         card.append(Titulo,imagem,descricao)
         projetos.append(card)
     }
@@ -50,14 +52,17 @@ verMais.addEventListener('click',async () => {
         let descricao = document.createElement('p')
         let card = document.createElement('section')
 
-
         Titulo.textContent = `${cards.title}`
-        Titulo.className = 'Titulo'
-        imagem.src = `${cards.image}`
         descricao.textContent = `${cards.description}`
-        card.className = 'Cards'
         
+        imagem.src = `${cards.image}`
+                
 
+        Titulo.className = 'cardsTitulo'
+        imagem.className = 'cardsImagem'
+        descricao.className = 'cardsDescricao'
+        card.className = 'cards'
+        
         card.append(Titulo,imagem,descricao)
         projetos.append(card)
 
