@@ -22,22 +22,32 @@ async function Iniciar() {
     console.log(result)
     for (let cards = 0; cards <= result.length - 13; cards++) {
         let InformacaoCards = result[cards]
+        let card = document.createElement('section')
         let Titulo = document.createElement('p')
         let imagem = document.createElement('img')
         let descricao = document.createElement('p')
-        let card = document.createElement('section')
+        let botao = document.createElement('button')
+
+
 
         Titulo.textContent = `${InformacaoCards.title}`
         descricao.textContent = `${InformacaoCards.description}`
+        botao.textContent = `Ler mais`
         
+        botao.addEventListener('click', () => {
+            let jsonAuxiliar = JSON.stringify(InformacaoCards)
+            localStorage.setItem("URL", jsonAuxiliar)
+            window.location.href = "sinopse.html"
+        })
         imagem.src = `${InformacaoCards.image}`
+        
 
         Titulo.className = 'cardsTitulo'
         imagem.className = 'cardsImagem'
         descricao.className = 'cardsDescricao'
         card.className = 'cards'
 
-        card.append(Titulo,imagem,descricao)
+        card.append(Titulo,imagem,descricao,botao)
         projetos.append(card)
     }
 }
@@ -47,23 +57,27 @@ verMais.addEventListener('click',async () => {
     const resultado = await fetchApi('')
     projetos.innerHTML = ''
     for ( let cards of resultado ){
+        let card = document.createElement('section')
         let Titulo = document.createElement('p')
         let imagem = document.createElement('img')
         let descricao = document.createElement('p')
-        let card = document.createElement('section')
+        let botao = document.createElement('button')
 
         Titulo.textContent = `${cards.title}`
         descricao.textContent = `${cards.description}`
+        botao.textContent = `Ler mais`
         
         imagem.src = `${cards.image}`
+
                 
 
         Titulo.className = 'cardsTitulo'
         imagem.className = 'cardsImagem'
         descricao.className = 'cardsDescricao'
         card.className = 'cards'
-        
-        card.append(Titulo,imagem,descricao)
+
+        link.appendChild(botao)
+        card.append(Titulo,imagem,descricao,botao)
         projetos.append(card)
 
         console.log(cards.title)
