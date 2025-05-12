@@ -1,88 +1,59 @@
-const imagemBanner = document.getElementById('imagemBanner')
-const filme = document.getElementById('filme')
-const verMais = document.getElementById('filmeVerMais')
+const imagemBanner = document.getElementById('imagemBanner');
+const filme = document.getElementById('filme');
+const verMais = document.getElementById('filmeVerMais');
 
-const fetchApi = (value) => {
-    const result = fetch(`https://ghibliapi.vercel.app/films/${value}`)
-    .then((res) => res.json())
-    .then((data) => {
-        // console.log(data)
-        return data
-    } )
+const fetchApi = async (id = '') => {
+  const res = await fetch(`https://ghibliapi.vercel.app/films/${id}`);
+  return res.json();
+};
 
-    return result
-}
+const criarCard = (filmeData) => {
+  const card = document.createElement('section');
+  const titulo = document.createElement('p');
+  const imagem = document.createElement('img');
+  const descricao = document.createElement('p');
+  const botao = document.createElement('button');
 
-async function Iniciar() {
+  titulo.textContent = filmeData.title;
+  imagem.src = filmeData.image;
+  descricao.textContent = filmeData.description;
+  botao.textContent = 'Ler mais';
 
-    const banner = await fetchApi('ea660b10-85c4-4ae3-8a5f-41cea3648e3e')
-    imagemBanner.src = `${banner.movie_banner}`
+  botao.addEventListener('click', () => {
+    localStorage.setItem("URL", JSON.stringify(filmeData));
+    window.location.href = "sinopse.html";
+  });
 
-    const result = await fetchApi('')
-    console.log(result)
-    for (let cards = 0; cards <= result.length - 13; cards++) {
-        let InformacaoCards = result[cards]
-        let card = document.createElement('section')
-        let Titulo = document.createElement('p')
-        let imagem = document.createElement('img')
-        let descricao = document.createElement('p')
-        let botao = document.createElement('button')
+  titulo.className = 'cardsTitulo';
+  imagem.className = 'cardsImagem';
+  descricao.className = 'cardsDescricao';
+  card.className = 'cards';
 
+  card.append(titulo, imagem, descricao, botao);
+  return card;
+};
 
+const exibirFilmes = (listaFilmes) => {
+  listaFilmes.forEach((filmeData) => {
+    const card = criarCard(filmeData);
+    filme.append(card);
+  });
+};
 
-        Titulo.textContent = `${InformacaoCards.title}`
-        descricao.textContent = `${InformacaoCards.description}`
-        botao.textContent = `Ler mais`
-        
-        botao.addEventListener('click', () => {
-            let jsonAuxiliar = JSON.stringify(InformacaoCards)
-            localStorage.setItem("URL", jsonAuxiliar)
-            window.location.href = "sinopse.html"
-        })
-        imagem.src = `${InformacaoCards.image}`
-        
+const Iniciar = async () => {
+  const banner = await fetchApi('ea660b10-85c4-4ae3-8a5f-41cea3648e3e');
+  imagemBanner.src = banner.movie_banner;
 
-        Titulo.className = 'cardsTitulo'
-        imagem.className = 'cardsImagem'
-        descricao.className = 'cardsDescricao'
-        card.className = 'cards'
+  const filmes = await fetchApi();
+  const primeirosFilmes = filmes.slice(0, filmes.length - 13);
+  exibirFilmes(primeirosFilmes);
+};
 
-        card.append(Titulo,imagem,descricao,botao)
-        filme.append(card)
-    }
-}
+verMais.addEventListener('click', async () => {
+  const filmes = await fetchApi();
+  filme.innerHTML = '';
+  exibirFilmes(filmes);
+  verMais.remove();
+});
 
-Iniciar()
-verMais.addEventListener('click',async () => {
-    const resultado = await fetchApi('')
-    filme.innerHTML = ''
-    for ( let cards of resultado ){
-        let card = document.createElement('section')
-        let Titulo = document.createElement('p')
-        let imagem = document.createElement('img')
-        let descricao = document.createElement('p')
-        let botao = document.createElement('button')
-
-        Titulo.textContent = `${cards.title}`
-        descricao.textContent = `${cards.description}`
-        botao.textContent = `Ler mais`
-        
-        imagem.src = `${cards.image}`
-
-                
-
-        Titulo.className = 'cardsTitulo'
-        imagem.className = 'cardsImagem'
-        descricao.className = 'cardsDescricao'
-        card.className = 'cards'
-
-        link.appendChild(botao)
-        card.append(Titulo,imagem,descricao,botao)
-        filme.append(card)
-
-        console.log(cards.title)
-    }
-    verMais.remove()
-})
-
-
+Iniciar();
