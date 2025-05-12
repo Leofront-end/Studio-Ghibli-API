@@ -1,6 +1,6 @@
 const imagemBanner = document.getElementById('imagemBanner')
-const projetos = document.getElementById('Projetos')
-const verMais = document.getElementById('projetoVerMais')
+const filme = document.getElementById('filme')
+const verMais = document.getElementById('filmeVerMais')
 
 const fetchApi = (value) => {
     const result = fetch(`https://ghibliapi.vercel.app/films/${value}`)
@@ -48,14 +48,14 @@ async function Iniciar() {
         card.className = 'cards'
 
         card.append(Titulo,imagem,descricao,botao)
-        projetos.append(card)
+        filme.append(card)
     }
 }
 
 Iniciar()
 verMais.addEventListener('click',async () => {
     const resultado = await fetchApi('')
-    projetos.innerHTML = ''
+    filme.innerHTML = ''
     for ( let cards of resultado ){
         let card = document.createElement('section')
         let Titulo = document.createElement('p')
@@ -78,7 +78,7 @@ verMais.addEventListener('click',async () => {
 
         link.appendChild(botao)
         card.append(Titulo,imagem,descricao,botao)
-        projetos.append(card)
+        filme.append(card)
 
         console.log(cards.title)
     }

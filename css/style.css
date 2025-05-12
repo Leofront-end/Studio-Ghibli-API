@@ -1,16 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+/* Cores: #5576D9 | #324359 | #ACCAF2 | #E2F26B | #F2B33D */
+
 * {
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
 }
 
+body {
+    background: #ACCAF2;
+}
+
 header{
     width: 100vw;
-    background-color: blue;
+    background: #324359;
 }
 
 h1 {
+    /* text-align: center; */
     font-family: 'Indie flower';
     color: #ffffff;
 }
@@ -40,42 +48,37 @@ a {
     color: white;
 }
 
-.projetoTitulo{
-    font: 2em bolder ;
-    font-family: 'Indie flower';
-    color: rgb(132, 0, 255);
-    text-decoration: underline #cc00ff 3px;
+.filmeTitulo{
+    font: bolder 2em 'Indie Flower';
+    color: #324359;
+    text-decoration: underline #5576D9 3px;
     
     width: 100vw;
     text-align: center;
 }
 
-#Projetos {
+#filme {
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap:10px;
-    margin: 10px;
 }
 
 .cards {
     width: 90%;
-    margin: 10px;
+    margin: 10px 0px ;
     padding: 5px 0px;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid #324359;
     border-radius: 5px;
     text-align: center;
-    background-color: rgb(0, 255, 213);
-    box-shadow: 2px 2px 6px #00000040;
+    background: #5576D9;
+    box-shadow: 2px 2px 6px #324359;
 }
 
 .cardsTitulo {
-    font: 1.5em bolder ;
-    font-family: 'Indie flower';
+    font: 1.5em 'Indie Flower';
     margin: 0px 0px 5px 0px;
     color: #ffffff;
-    text-decoration: underline #cc00ff 2px;
-
+    text-decoration: underline #324359 1.5px;
 }
 
 .cardsImagem {
@@ -88,14 +91,7 @@ a {
     text-overflow: ellipsis;
 }
 
-#projetoVerMais {
-    text-align: center;
-    /* width: 100%; */
+#filmeVerMais {
     padding: 5px;
-    background-color: #ffffff;
+    background-color: #324359;
 }
-
-main > button {
-    width: 500px;
-}
-
