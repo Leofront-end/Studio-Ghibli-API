@@ -3,16 +3,29 @@ const filme = document.getElementById('filme');
 const verMais = document.getElementById('filmeVerMais');
 const menu = document.getElementById('menu')
 const listaMenu = document.getElementById("listaMenu")
+const body = document.querySelector('body')
 
-// menu.addEventListener('click', () => {
-//   if (listaMenu.style.display === 'none') {
-//     listaMenu.style.display = 'block'
-//     menu.textContent = 'close'
-//   } else {
-//     listaMenu.style.display = 'none'
-//     menu.innerText = 'menu'
-//   }
-// })
+function tirarMenu() {
+  body.style.overflow = 'auto'
+  listaMenu.style.display = 'none'
+  menu.classList = 'fa-solid fa-bars'
+}
+
+menu.addEventListener('click', () => {
+  if (listaMenu.style.display === 'none') {
+    body.style.overflow = 'hidden'
+    listaMenu.style.display = 'block'
+    menu.classList = 'fa-solid fa-xmark'
+  } else {
+    tirarMenu()
+  }
+})
+
+listaMenu.querySelectorAll('a').forEach((a) => {
+  a.addEventListener('click', () => {
+    tirarMenu()
+  })
+})
 
 const fetchApi = async (id = '') => {
   const res = await fetch(`https://ghibliapi.vercel.app/films/${id}`);

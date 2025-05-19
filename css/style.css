@@ -5,15 +5,15 @@
 * {
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden;
 }
 
 body {
+    overflow: auto;
     background: #ACCAF2;
 }
 
 header{
-    width: 100vw;
+    max-width: 100vw;
     background: #324359;
 }
 
@@ -21,22 +21,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0px 10px;
-}
-
-
-.material-symbols-outlined {
-    color: white;
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
-}
-
-
-span {
-    overflow: hidden;
+    margin: 0px 20px;
 }
 
 h1 {
@@ -50,9 +35,23 @@ a {
 }
 
 i {
-    width: 50px;
-    height: 50px;
+    color: white;
 }
+
+li > a {
+    font-size: 1.5rem;
+    color: white;
+
+}
+
+li {
+    display: flex;
+    align-items: center;
+    width: 90vw;
+    border-bottom: 1px solid white;
+    margin: 0px 0px 10px 10px;
+}
+
 #listaMenu {
     display: none;
     z-index: 2;
@@ -64,6 +63,7 @@ i {
     background-color: #324359;
 }
 
+main{    overflow-x: hidden;}
 #imagemBanner{
     max-width: 100vw;
     filter: grayscale(20);
@@ -80,9 +80,8 @@ i {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* font-family: ; */
     font: bolder 20px 'Indie flower' ;
-    color: white;
+    color: #E2F26B;
 }
 
 #filmes {
@@ -127,6 +126,7 @@ i {
 }
 
 .cardsDescricao {
+    overflow: hidden;
     margin: 5px;
     white-space: nowrap;
     text-overflow: ellipsis;
