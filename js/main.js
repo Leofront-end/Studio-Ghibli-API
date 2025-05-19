@@ -1,6 +1,18 @@
 const imagemBanner = document.getElementById('imagemBanner');
 const filme = document.getElementById('filme');
 const verMais = document.getElementById('filmeVerMais');
+const menu = document.getElementById('menu')
+const listaMenu = document.getElementById("listaMenu")
+
+// menu.addEventListener('click', () => {
+//   if (listaMenu.style.display === 'none') {
+//     listaMenu.style.display = 'block'
+//     menu.textContent = 'close'
+//   } else {
+//     listaMenu.style.display = 'none'
+//     menu.innerText = 'menu'
+//   }
+// })
 
 const fetchApi = async (id = '') => {
   const res = await fetch(`https://ghibliapi.vercel.app/films/${id}`);

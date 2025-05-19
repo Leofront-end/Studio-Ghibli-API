@@ -17,6 +17,28 @@ header{
     background: #324359;
 }
 
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 10px;
+}
+
+
+.material-symbols-outlined {
+    color: white;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+
+span {
+    overflow: hidden;
+}
+
 h1 {
     /* text-align: center; */
     font-family: 'Indie flower';
@@ -25,6 +47,21 @@ h1 {
 
 a {
     text-decoration: none;
+}
+
+i {
+    width: 50px;
+    height: 50px;
+}
+#listaMenu {
+    display: none;
+    z-index: 2;
+    position: absolute;
+    top: 34px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #324359;
 }
 
 #imagemBanner{
