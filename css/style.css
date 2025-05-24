@@ -40,7 +40,6 @@ i {
 li > a {
     font-size: 1.5rem;
     color: white;
-
 }
 
 li {
@@ -62,7 +61,8 @@ li {
     background-color: #324359;
 }
 
-main{    overflow-x: hidden;}
+main {overflow-x: hidden;}
+
 #imagemBanner{
     object-fit: cover;
     width: 100vw;
@@ -103,8 +103,16 @@ main{    overflow-x: hidden;}
     flex-direction: column;
 }
 
-.cards {
-    width: 90%;
+#filme {
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* gap: 50px; */
+}
+
+.cards, .premios {
+    width: 290px;
+    height: 600px;
     margin: 10px 0px ;
     padding: 5px 0px;
     border: 1px solid #324359;
@@ -114,11 +122,18 @@ main{    overflow-x: hidden;}
     box-shadow: 2px 2px 6px #324359;
 }
 
-.cardsTitulo, .fundador-conteudo-titulo{
+.cardsTitulo, .fundador-conteudo-titulo, .premiosTitulo{
     font: 1.5em 'Indie Flower';
     margin: 0px 0px 5px 0px;
     color: #ffffff;
     text-decoration: underline #324359 1.5px;
+}
+
+.cardsTitulo { 
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cardsImagem {
@@ -201,18 +216,29 @@ p.fundador-conteudo-descricao {
 /* PREMIAÇÕES */
 
 #premiacoes {
-    gap: 0px;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-#premiacoes .cards{
+#premiacoes > section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#premiacoes .premios{
     width: 290px;
+    height: 100px;
 }
 
-#premiacoes .cards:hover {
+#premiacoes .premios:hover{
     transform: scale(1.1);
 }
 
-#premiacoes > i {
+#premiacoes i {
     position: relative;
     padding: 5px;
     background-color: #324359;
@@ -220,12 +246,12 @@ p.fundador-conteudo-descricao {
     top: 25px;
 }
 
-#premiacoes .cardsTitulo{
+#premiacoes .premiosTitulo{
     margin-top: 10px;
 }
 
 /* MUSEU GHIBLI */
-#museuGhibli {
+#museuGhibli,footer {
     margin: 10px 0px;
     padding: 10px;
     background-color: #5576D9;
@@ -234,4 +260,76 @@ p.fundador-conteudo-descricao {
 #museuGhibli iframe{
     border-radius: 5px;
     width: 290px;
+}
+
+footer {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+footer a {
+    color: #E2F26B;
+    text-decoration: underline;
+}
+
+footer p { color: #ffffff;}
+
+@media (width >= 580px) {
+    header {
+        height: 70px;
+    }
+
+    nav {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    nav i {
+        display: none;
+    }
+
+    li {
+        width: auto;
+        height: auto;
+        border-bottom: 0px;
+        margin: 0px ;
+    }
+
+    li > a {
+        font-size: 1rem;
+        color: white;
+    }
+
+    #listaMenu {
+        top: 0px;
+        right: 0px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        font: 1em;
+        z-index: 0;
+        position: relative;
+        width: auto;
+        height: 70px;
+    }
+
+    #filme {
+        gap: 30px;
+        margin: 10px;
+    }
+
+    .fundadores-fundador > img {
+        height: auto;
+        width: 50%;
+    }
+    
+    .fundador-conteudo > p {
+        text-align: start;
+        margin-left: 10px;
+    }
+
+
 }

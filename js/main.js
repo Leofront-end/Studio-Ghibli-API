@@ -11,19 +11,34 @@ function tirarMenu() {
   menu.classList = 'fa-solid fa-bars'
 }
 
-menu.addEventListener('click', () => {
-  if (listaMenu.style.display === 'none') {
-    body.style.overflow = 'hidden'
-    listaMenu.style.display = 'block'
-    menu.classList = 'fa-solid fa-xmark'
+function funcionalidadesMenu(){
+  menu.style.display = 'block'
+  if (window.innerWidth < 580){
+    menu.addEventListener('click', () => {
+    
+      if (listaMenu.style.display === 'none') {
+        body.style.overflow = 'hidden'
+        listaMenu.style.display = 'block'
+        menu.classList = 'fa-solid fa-xmark'
+      } else {
+        tirarMenu()
+      }
+    
+    })
   } else {
-    tirarMenu()
+    menu.style.display = 'none'
   }
+}
+
+funcionalidadesMenu()
+
+window.addEventListener('resize', () => {
+  funcionalidadesMenu()
 })
 
 listaMenu.querySelectorAll('a').forEach((a) => {
   a.addEventListener('click', () => {
-    tirarMenu()
+    if (window.innerWidth <= 580){tirarMenu()}
   })
 })
 
