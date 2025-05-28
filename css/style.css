@@ -7,6 +7,10 @@
     padding: 0px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     overflow: auto;
     background: #ACCAF2;
@@ -88,7 +92,7 @@ main {overflow-x: hidden;}
     text-align: center
 }
 
-.filmeTitulo{
+.titulo{
     font: bolder 2em 'Indie Flower';
     color: #E2F26B;
     text-decoration: underline #5576D9 3px;
@@ -219,7 +223,7 @@ p.fundador-conteudo-descricao {
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 0px 50px;
 }
 
 #premiacoes > section {
@@ -262,11 +266,21 @@ p.fundador-conteudo-descricao {
     width: 290px;
 }
 
+#museuGhibli p.conteudo {
+    margin-top: 50px;
+    color: #ffffff;
+}
+
 footer {
     margin: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+footer section {
+    display: flex;
+    flex-direction: column;
 }
 
 footer a {
@@ -323,7 +337,7 @@ footer p { color: #ffffff;}
 
     .fundadores-fundador > img {
         height: auto;
-        width: 50%;
+        width: 600px;
     }
     
     .fundador-conteudo > p {
@@ -331,5 +345,48 @@ footer p { color: #ffffff;}
         margin-left: 10px;
     }
 
+}
 
+@media (width >= 1400px) {
+    p, li > a, .cards > button, #filmes > button, footer a,#premiacoes i {
+        font-size: 2em;
+    }
+
+    h1, .titulo, .cardsTitulo, .fundador-conteudo > p, #premiacoes .premiosTitulo, .banner p{
+        font-size: 3em;
+    }
+
+    #listaMenu {
+        display: flex;
+        gap: 50px;
+    }
+
+    .cards {
+        height: 950px;
+        width: 400px;
+    }
+
+    .cardsTitulo {
+        height: 220px;
+    }
+
+    #premiacoes .premios {
+        height: 510px;
+    }
+
+    #premiacoes .premiosTitulo  {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 210px;
+    }
+
+    #premiacoes i { 
+        top: 40px;
+        padding: 20px;
+    }
+
+    #museuGhibli iframe {
+        width: 50vw;
+    }    
 }
