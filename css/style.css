@@ -8,7 +8,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
 }
 
 body {
@@ -41,17 +41,22 @@ i {
     color: white;
 }
 
-li > a {
-    font-size: 1.5rem;
-    color: white;
-}
-
 li {
     display: flex;
     align-items: center;
     width: 90vw;
     border-bottom: 1px solid white;
     margin: 0px 0px 10px 10px;
+}
+
+li > a {
+    font-size: 1.5rem;
+    color: white;
+    transition: 0.5s ease-in-out;
+}
+
+li > a:hover {
+    color: #E2F26B;
 }
 
 #listaMenu {
