@@ -45,13 +45,15 @@ i {
     height: 50vh;
     display: flex;
     justify-content: space-around;
+    gap: 5px;
     align-items: flex-end;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 #bannerVertical {
     border-radius: 15px;
     box-shadow: 2px 2px 6px #324359;
+    max-height: 270px;
     width: 30%;
 }
 
@@ -60,5 +62,40 @@ i {
 }
 
 #informacoes p {
+    color: #000000;
+}
+
+#informacoes section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 90px;
+    background-color: #ACCAF2;
+    padding: 3px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.sinopse {
+    margin: 10px;
+}
+
+footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    padding: 4px;
+    background-color: #324359;
     color: #ffffff;
+}
+
+@media (width >= 600px) {
+    #informacoes {
+        justify-content: flex-start;
+    }
+
+    #bannerVertical {
+        width: auto;
+    }
 }
