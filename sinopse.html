@@ -3,23 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>    
+    <link rel="stylesheet" href="css/sinopse.css">
     <title>Sinopse</title>
 </head>
 <body>
     <header>
-        <a href="index.html">
-            <h1>Studio Ghibli</h1>
-        </a>
+        <nav>
+            <a href="index.html">
+                <i class="fa-solid fa-caret-left"></i>
+            </a>
+            <a href="index.html">
+                <h1>Studio Ghibli</h1>
+            </a>
+        </nav>
     </header>
     <main>
-        <section class="banner">
-            <img src="" alt="" id="bannerHorizontal">
-        </section>
         <section >
-            <section class="informacoes">
+            <section id="informacoes">
                 <img src="" alt="" id="bannerVertical">
-                <p>Tempo de Duração</p>
-                <p>Diretor:</p>
+                <section>
+                    <p class="titulo">Tempo de Duração</p>
+                    <p id="tempo"></p>
+                </section>
+                <section>
+                    <p class="titulo">Diretor:</p>
+                    <p id="diretor"></p>
+                </section>
             </section>
             <section class="sinopse">
                 <h2>Descrição</h2>
