@@ -57,7 +57,7 @@ const criarCard = (filmeData) => {
   titulo.textContent = filmeData.title;
   imagem.src = filmeData.image;
   descricao.textContent = filmeData.description;
-  botao.textContent = 'Ler mais';
+  botao.textContent = 'Read more';
 
   botao.addEventListener('click', () => {
     localStorage.setItem("URL", JSON.stringify(filmeData));
