@@ -68,6 +68,7 @@ li > a:hover {
     width: 100vw;
     height: 100vh;
     background-color: #324359;
+    animation: fadeIn 1s;
 }
 
 main {overflow-x: hidden;}
@@ -116,7 +117,6 @@ main {overflow-x: hidden;}
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    /* gap: 50px; */
 }
 
 .cards, .premios {
@@ -295,7 +295,29 @@ footer a {
 
 footer p { color: #ffffff;}
 
-@media (width >= 580px) {
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    margin-left: 100%;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0%;
+  }
+}
+
+@keyframes aparecer {
+  0% {
+    opacity: 0;
+    margin-right: 100%;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0%;
+  }
+}
+
+@media (min-width: 580px) {
     header {
         height: 70px;
     }
@@ -352,7 +374,7 @@ footer p { color: #ffffff;}
 
 }
 
-@media (width >= 1400px) {
+@media (min-width: 1400px) {
     p, li > a, .cards > button, #filmes > button, footer a,#premiacoes i {
         font-size: 2em;
     }
