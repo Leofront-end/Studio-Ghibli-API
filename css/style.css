@@ -296,17 +296,6 @@ footer a {
 
 footer p { color: #ffffff;}
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    margin-left: 100%;
-  }
-  100% {
-    opacity: 1;
-    margin-left: 0%;
-  }
-}
-
 @keyframes aparecer {
   0% {
     opacity: 0;
